@@ -1,0 +1,208 @@
+[
+	{
+		"pin": 1,
+		"GPIO": false,
+		"description" : "3.3v DC Power"
+	},
+	{
+		"pin": 2,
+		"GPIO": false,
+		"description" : "5v DC Power"
+	},
+	{
+		"pin": 3,
+		"GPIO": "02",
+		"description" : "SDA1, I²C"
+	},
+	{
+		"pin": 4,
+		"GPIO": false,
+		"description" : "5v DC Power"
+	},
+	{
+		"pin": 5,
+		"GPIO": "03",
+		"description" : "SCL1, I²C"
+	},
+	{
+		"pin": 6,
+		"GPIO": false,
+		"description" : "GROUND"
+	},
+	{
+		"pin": 7,
+		"GPIO": "04",
+		"description" : "GPCLK0"
+	},
+	{
+		"pin": 8,
+		"GPIO": "14",
+		"description" : "TXD0, UART"
+	},
+	{
+		"pin": 9,
+		"GPIO": false,
+		"description" : "GROUND"
+	},
+	{
+		"pin": 10,
+		"GPIO": "15",
+		"description" : "RXD0, UART"
+	},
+	{
+		"pin": 11,
+		"GPIO": "17",
+		"description" : ""
+	},
+	{
+		"pin": 12,
+		"GPIO": "18",
+		"description" : "PWM0"
+	},
+	{
+		"pin": 13,
+		"GPIO": "27",
+		"description" : ""
+	},
+	{
+		"pin": 14,
+		"GPIO": "GROUND",
+		"description" : ""
+	},
+	{
+		"pin": 15,
+		"GPIO": "22",
+		"description" : ""
+	},
+	{
+		"pin": 16,
+		"GPIO": "23",
+		"description" : ""
+	},
+	{
+		"pin": 17,
+		"GPIO": false,
+		"description" : "3.3v DC Power"
+	},
+	{
+		"pin": 18,
+		"GPIO": "24",
+		"description" : ""
+	},
+	{
+		"pin": 19,
+		"GPIO": "10",
+		"description" : "SPI0_MOSI"
+	},
+	{
+		"pin": 20,
+		"GPIO": false,
+		"description" : "GROUND"
+	},
+	{
+		"pin": 21,
+		"GPIO": "09",
+		"description" : "SPI0_MISO"
+	},
+	{
+		"pin": 22,
+		"GPIO": "25",
+		"description" : ""
+	},
+	{
+		"pin": 21,
+		"GPIO": "09",
+		"description" : "SPI0_MISO"
+	},
+	{
+		"pin": 23,
+		"GPIO": "11",
+		"description" : "SPI0_CLK"
+	},
+	{
+		"pin": 24,
+		"GPIO": "08",
+		"description" : "SPI0_CE0_N"
+	},
+	{
+		"pin": 25,
+		"GPIO": false,
+		"description" : "GROUND"
+	},
+	{
+		"pin": 26,
+		"GPIO": "07",
+		"description" : "SPI0_CE1_N"
+	},
+	{
+		"pin": 27,
+		"GPIO": "00",
+		"description" : "SDA0, I²C"
+	},
+	{
+		"pin": 28,
+		"GPIO": "01",
+		"description" : "SCL0, I²C"
+	},
+	{
+		"pin": 29,
+		"GPIO": "05",
+		"description" : ""
+	},
+	{
+		"pin": 30,
+		"GPIO": false,
+		"description" : "GROUND"
+	},
+	{
+		"pin": 31,
+		"GPIO": "06",
+		"description" : "SPI0_MISO"
+	},
+	{
+		"pin": 32,
+		"GPIO": "12",
+		"description" : "PWM0"
+	},
+	{
+		"pin": 33,
+		"GPIO": "13",
+		"description" : "PWM1"
+	},
+	{
+		"pin": 34,
+		"GPIO": false,
+		"description" : "GROUND"
+	},
+	{
+		"pin": 35,
+		"GPIO": "19",
+		"description" : ""
+	},
+	{
+		"pin": 36,
+		"GPIO": "16",
+		"description" : ""
+	},
+	{
+		"pin": 37,
+		"GPIO": "26",
+		"description" : ""
+	},
+	{
+		"pin": 38,
+		"GPIO": "20",
+		"description" : ""
+	},
+	{
+		"pin": 39,
+		"GPIO": "GROUND",
+		"description" : ""
+	},
+	{
+		"pin": 40,
+		"GPIO": "21",
+		"description" : ""
+	}
+	
+]
