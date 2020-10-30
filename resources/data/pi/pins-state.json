@@ -89,7 +89,7 @@
     },
     "32": {
         "mode": "OUT",
-        "state": 0
+        "state": 1
     },
     "33": {
         "mode": "OUT",
@@ -97,15 +97,15 @@
     },
     "35": {
         "mode": "OUT",
-        "state": 1
+        "state": 0
     },
     "36": {
         "mode": "OUT",
         "state": 0
     },
     "37": {
-        "mode": "OUT",
-        "state": 0
+        "mode": "IN",
+        "state": 1
     },
     "38": {
         "mode": "OUT",

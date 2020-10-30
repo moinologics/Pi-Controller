@@ -19,8 +19,8 @@ class PiController extends Controller
 
     public function test()
     {
-
-        echo $this->runQuery([]);
+//		print_r($this->setOutput(35,0));
+		print_r($this->getInput(37));
     }
 
 }

@@ -1,4 +1,5 @@
 import argparse
+import json
 import RPi.GPIO as GPIO
 
 class ParseKwargs(argparse.Action):
@@ -34,10 +35,12 @@ def argparser():
 
 def setPinOutput(pin, value):
 	GPIO.setup(pin,GPIO.OUT)
-	if value=='HIGH':
+	if value=='1':
 		GPIO.output(pin,GPIO.HIGH)
-	elif value=='LOW':
+	elif value=='0':
 		GPIO.output(pin,GPIO.LOW)
+
+	return 'None'
 
 
 def getPinInput(pin):
@@ -79,7 +82,7 @@ else:
 
 
 if error == None:
-	print(str({'status': 1, 'msg': result}))
+	print(json.dumps({'status': 1, 'msg': result}))
 else:
-	print(str({'status': 0, 'error': error}))
+	print(json.dumps({'status': 0, 'error': error}))
 
