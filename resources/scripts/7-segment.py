@@ -73,7 +73,7 @@ GPIO.output(d,[1,1,1])
 
 while(True):
 
-	percent = int(open('7-segment-percent-number.txt','r').read())
+	percent = int(open('../data/pi/7-segment-percent-number.txt','r').read())
 
 
 	refresh_display(percent,freq)
