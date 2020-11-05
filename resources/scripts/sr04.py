@@ -6,7 +6,17 @@ GPIO.setmode(GPIO.BOARD)
 
 TRIG = 3
 ECHO = 5
+
 i=0
+
+max_distance = 118		#cm
+min_distance = 12		#cm
+
+current_distance = max_distance
+last_distance = current_distance
+
+file = open("../../7-segment-percent-number.txt", "w")
+
 
 GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
@@ -16,6 +26,7 @@ print("Calibrating.....")
 time.sleep(0.5)
 
 print("Place the object......")
+
 
 
 try:
@@ -32,15 +43,18 @@ try:
 
        pulse_duration = pulse_end - pulse_start
 
-       distance = pulse_duration * 17150
+       current_distance = pulse_duration * 17150
 
-       distance = round(distance, 2)
+       current_distance = round(current_distance, 2)
   
-       if distance<=400 and distance>=2:
-          print("distance:",distance,"cm")
-          i=1
+       if current_distance<=400 and current_distance>=2:
+           i=1
+           if current_distance != last_distance:
+               tank_percent = ( (current_distance-min_distance)/(max_distance-min_distance) ) * 100
+               print("percent: ", 100 - int(tank_percent), "%")
+               print("current distance: ",current_distance, "cm")
           
-       if distance>400 and i==1:
+       if current_distance>400 and i==1:
           print("place the object....")
           i=0
        time.sleep(2)
