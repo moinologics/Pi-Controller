@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
-#GPIO.setwarnings(False)
+GPIO.setwarnings(False)
 
 def decimalToBinary(n, l):
 	b = bin(n).replace("0b", "")
@@ -10,6 +10,11 @@ def decimalToBinary(n, l):
 		b = ("0"*(l-len(b))) + b
 	return b
 
+def read_stored_percent():
+	f = open('../data/pi/7-segment-percent-number.txt','r')
+	percent = int(f.read())
+	f.close()
+	return percent
 
 def format_number(n):
 	n = str(n)
@@ -59,31 +64,33 @@ def refresh_display(num, freq):
 D = [37,35,33,31]
 d = [40,38,36]
 
-dp = 29
 
 freq = 1/200
 
 i = 0
 
+percent = 0
+
 GPIO.setup(D,GPIO.OUT)
 GPIO.setup(d,GPIO.OUT)
 
-GPIO.setup(dp,GPIO.OUT)
 
 GPIO.output(D,[0,0,0,0])
 GPIO.output(d,[1,1,1])
-
-GPIO.output(dp,1)
 
 
 while(True):
 
 	try:
-		percent = int(open('../data/pi/7-segment-percent-number.txt','r').read())
+		try:
+			percent = read_stored_percent()
+		except:
+			pass
 		refresh_display(percent,freq)
 		i += 1
 		if i > 100:
 			i = 0
 	except KeyboardInterrupt:
-		GPIO.cleanup()
+		GPIO.output(D,[0,0,0,0])
+		GPIO.output(d,[1,1,1])
 		exit()

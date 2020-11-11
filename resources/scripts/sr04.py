@@ -1,13 +1,19 @@
 import RPi.GPIO as GPIO
 import time
 
+def log_percent(percent):
+	f = open('../data/pi/7-segment-percent-number.txt', 'w')
+	f.write(str(percent))
+	f.close()
 
 GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
 TRIG = 3
 ECHO = 5
 
 i=0
+sleep_time = 30
 
 max_distance = 118		#cm
 min_distance = 12		#cm
@@ -50,14 +56,17 @@ try:
        if current_distance<=400 and current_distance>=2:
            i=1
            if current_distance != last_distance:
-               tank_percent = ( (current_distance-min_distance)/(max_distance-min_distance) ) * 100
-               print("percent: ", 100 - int(tank_percent), "%")
+               tank_empty_percent = int( ( (current_distance-min_distance)/(max_distance-min_distance) ) * 100 )
+               tank_fill_percent = 100 - tank_empty_percent
+               log_percent(tank_fill_percent)
+               print("percent: ", tank_fill_percent, "%")
                print("current distance: ",current_distance, "cm")
           
        if current_distance>400 and i==1:
           print("place the object....")
           i=0
-       time.sleep(2)
+       
+       time.sleep(sleep_time)
 
 except KeyboardInterrupt:
      GPIO.cleanup()
