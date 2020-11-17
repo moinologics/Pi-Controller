@@ -1,27 +1,27 @@
 import RPi.GPIO as GPIO
 import time
 
+data_dir = '../data/'
+
 def log_percent(percent):
-	f = open('../data/pi/7-segment-percent-number.txt', 'w')
+	f = open(data_dir+'7-segment-percent-number.txt', 'w')
 	f.write(str(percent))
 	f.close()
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-TRIG = 3
-ECHO = 5
+TRIG = 16
+ECHO = 18
 
 i=0
-sleep_time = 30
+sleep_time = 10
 
 max_distance = 118		#cm
 min_distance = 12		#cm
 
 current_distance = max_distance
 last_distance = current_distance
-
-file = open("../../7-segment-percent-number.txt", "w")
 
 
 GPIO.setup(TRIG,GPIO.OUT)

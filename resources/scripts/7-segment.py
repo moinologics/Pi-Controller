@@ -4,6 +4,8 @@ import time
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
+data_dir = '../data/'
+
 def decimalToBinary(n, l):
 	b = bin(n).replace("0b", "")
 	if len(b) < l:
@@ -11,7 +13,7 @@ def decimalToBinary(n, l):
 	return b
 
 def read_stored_percent():
-	f = open('../data/pi/7-segment-percent-number.txt','r')
+	f = open(data_dir+'7-segment-percent-number.txt','r')
 	percent = int(f.read())
 	f.close()
 	return percent

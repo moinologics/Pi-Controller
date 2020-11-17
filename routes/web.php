@@ -18,3 +18,6 @@ Route::get('/', function (){
 });
 
 Route::get('/test', 'Api\PiController@test');
+
+
+Route::get('/tank-percent', 'Api\PiController@tank_percent');

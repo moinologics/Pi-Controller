@@ -16,8 +16,8 @@ trait Pi
     	public function __construct()
     	{
         	$this->disk = Storage::disk('resources');
-        	$this->pins = json_decode($this->disk->get('pi/pins.json'),true);
-        	$this->states = json_decode($this->disk->get('pi/pins-state.json'),true);
+        	$this->pins = json_decode($this->disk->get('pins.json'),true);
+        	$this->states = json_decode($this->disk->get('pins-state.json'),true);
     	}
 
     	public function __destruct()
