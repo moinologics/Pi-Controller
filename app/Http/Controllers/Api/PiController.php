@@ -22,14 +22,14 @@ class PiController extends Controller
 		//print_r($this->getInput(37));
     }
 
-    public function tank_percent(Request $request)
+    public function tank_meter(Request $request)
     {
     		$percent = Storage::disk('resources')->get('7-segment-percent-number.txt');
     		if($request->exists('getpercent'))
     		{
     			return $percent;
     		}
-    		return view('tank-percent',['percent'=>$percent]);
+    		return view('tank-meter',['percent'=>$percent]);
     }
 
 }

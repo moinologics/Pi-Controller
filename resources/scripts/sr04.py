@@ -15,7 +15,7 @@ TRIG = 16
 ECHO = 18
 
 i=0
-sleep_time = 10
+sleep_time = 1
 
 max_distance = 118		#cm
 min_distance = 12		#cm
