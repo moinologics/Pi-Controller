@@ -3,19 +3,27 @@
 <head>
 	<title>water tank percentage</title>
 	<link rel="stylesheet" href="{{url('/assets/libs/css/bootstrap.min.css')}}">
+	<script src="{{url('/assets/libs/js/jquery.min.js')}}"></script> 
 	<script src="{{url('/assets/libs/js/fluid-meter.js')}}"></script> 
 	<style>
 		body{
 			height: 100vh;
 		}
+		h3{
+			font-size: 5vw;
+			color: "#16E1FF";
+		}
 	</style>
 </head> 
 <body>
 
-	<div class="container-fluid h-100 border">
+	<div class="container-fluid h-100">
 		<div class="row align-items-center h-100">
-			<div class="col-12 border text-center">
-				<h3>Water Tank Meter</h3>
+			<div class="col-12 text-center">
+				<div class="px-5 py-3 d-inline-block rounded" id="title">
+					<h3 class="text-light">Water Tank Meter</h3>
+				</div>
+				
 				<div id="fluid-meter"></div>
 			</div>
 		</div>
@@ -37,7 +45,7 @@
 		        fontSize: "60px",
 		        drawPercentageSign: true,
 		        drawBubbles: true,
-		        size: (vw>1000) ? (vw*0.5) : (vw*0.8),
+		        size: (vw>1000) ? (vw*0.4) : (vw*0.8),
 		        borderWidth: 30,
 		        backgroundColor: "#e2e2e2",
 		        foregroundColor: "#fafafa",
@@ -61,15 +69,22 @@
     	
     	function refresh_percentage(fm)
     	{
-    		var xhttp = new XMLHttpRequest(); 
-    		xhttp.onreadystatechange = function(){
-			if(this.readyState == 4 && this.status == 200){ 
-				fm.setPercentage(Number(xhttp.responseText.trim()));
-				console.log(xhttp.responseText);
-			}
-		};
-		xhttp.open('GET','/tank-meter?getpercent',true);
-		xhttp.send();
+    		$.get('/tank-meter?getpercent', function(data,status){
+    			if(status == 'success')
+    			{
+    				fm.setPercentage(data.filled_percentage);
+    				if(data.filling)
+    				{
+    					$('#title').removeClass('bg-danger').addClass('bg-success')
+    				}
+    				else{
+    					$('#title').removeClass('bg-success').addClass('bg-danger')
+    				}
+    			}
+    			else{
+    				console.log(status);
+    			}
+    		});
 	}
 
 //	document.write(document.documentElement.clientWidth)

@@ -1,10 +1,13 @@
 import RPi.GPIO as GPIO
 import time
+import json
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-data_dir = '../data/'
+
+home_data = '../data/home.json'
+
 
 def decimalToBinary(n, l):
 	b = bin(n).replace("0b", "")
@@ -13,10 +16,9 @@ def decimalToBinary(n, l):
 	return b
 
 def read_stored_percent():
-	f = open(data_dir+'7-segment-percent-number.txt','r')
-	percent = int(f.read())
-	f.close()
-	return percent
+	with open(home_data,'r') as hfile:
+		home = json.load(hfile)
+	return home['tank']['filled_percentage']
 
 def format_number(n):
 	n = str(n)
@@ -55,12 +57,6 @@ def refresh_display(num, freq):
 		for di_num in range(3):
 			time.sleep(freq)
 			setDigit(num[2-di_num], di_num)
-		
-
-
-
-
-
 
 
 D = [37,35,33,31]
@@ -86,6 +82,7 @@ while(True):
 	try:
 		try:
 			percent = read_stored_percent()
+			print(percent)
 		except:
 			pass
 		refresh_display(percent,freq)

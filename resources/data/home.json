@@ -1,0 +1,10 @@
+{
+	"electricity_available": 1,
+	
+	"tank": {
+		"filled_percentage": 37,
+		"current_water_distance_cm": 55,
+		"filling": 1
+	}
+
+}
