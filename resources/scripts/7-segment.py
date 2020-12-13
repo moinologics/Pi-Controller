@@ -50,7 +50,7 @@ def setDigit(di_val,di_num):
 def refresh_display(num, freq):
 	num = format_number(num)
 
-	print(num)
+	print(freq)
 #	return
 
 	for count in range(int(1/freq)):
@@ -64,8 +64,6 @@ d = [40,38,36]
 
 
 freq = 1/200
-
-i = 0
 
 percent = 0
 
@@ -86,9 +84,6 @@ while(True):
 		except:
 			pass
 		refresh_display(percent,freq)
-		i += 1
-		if i > 100:
-			i = 0
 	except KeyboardInterrupt:
 		GPIO.output(D,[0,0,0,0])
 		GPIO.output(d,[1,1,1])
