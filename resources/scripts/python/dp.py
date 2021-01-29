@@ -13,12 +13,15 @@ motor = 32
 
 def log_data(filling):
 
-	with open(home_data,'r') as hfile:
-		home = json.load(hfile)
-	
-	with open(home_data,'w') as hfile:
-		home['tank']['filling'] = filling
-		hfile.write(json.dumps(home, indent=4))
+	try:
+		with open(home_data,'r') as hfile:
+			home = json.load(hfile)
+		
+		with open(home_data,'w') as hfile:
+			home['tank']['filling'] = filling
+			hfile.write(json.dumps(home, indent=4))
+	except:
+		pass
 
 	print(filling)
 
