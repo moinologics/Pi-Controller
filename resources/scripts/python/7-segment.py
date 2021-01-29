@@ -15,9 +15,10 @@ def decimalToBinary(n, l):
 		b = ("0"*(l-len(b))) + b
 	return b
 
-def read_stored_percent():
+def read_stored_percent(prev_val):
 	with open(home_data,'r') as hfile:
 		home = json.load(hfile)
+	
 	return home['tank']['filled_percentage']
 
 def format_number(n):
@@ -78,13 +79,12 @@ GPIO.output(d,[1,1,1])
 while(True):
 
 	try:
-		try:
-			percent = read_stored_percent()
-			print(percent)
-		except:
-			pass
+		percent = read_stored_percent(percent)
 		refresh_display(percent,freq)
+		print(percent)
 	except KeyboardInterrupt:
 		GPIO.output(D,[0,0,0,0])
 		GPIO.output(d,[1,1,1])
 		exit()
+	except:
+		pass

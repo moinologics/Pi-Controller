@@ -6,21 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-use App\Traits\Pi;
+use App\Traits\Esp12f;
 
 
-class PiController extends Controller
+class EspController extends Controller
 {
-//	use Pi;
-
-
-
-    public function test()
-    {
-    		
-//		print_r($this->setOutput(35,0));
-		//print_r($this->getInput(37));
-    }
+	use Esp12f;
+	public function test()
+	{
+		return $this->setOutput(1,'low');
+	}
 
     public function tank_meter(Request $request)
     {

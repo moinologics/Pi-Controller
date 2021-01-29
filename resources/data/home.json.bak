@@ -1,0 +1,33 @@
+{
+    "electricity_available": 1,
+    "tank": {
+        "filled_percentage": 87,
+        "current_water_distance_cm": 24.36,
+        "filling": 1
+    },
+    "weather": {
+        "accuweather": {
+            "LocalObservationDateTime": "2021-01-18T10:41:00+05:30",
+            "EpochTime": 1610947111,
+            "WeatherText": "Hazy sunshine",
+            "WeatherIcon": 5,
+            "HasPrecipitation": false,
+            "PrecipitationType": null,
+            "IsDayTime": true,
+            "Temperature": {
+                "Metric": {
+                    "Value": 14.7,
+                    "Unit": "C",
+                    "UnitType": 17
+                },
+                "Imperial": {
+                    "Value": 58.0,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "MobileLink": "http://m.accuweather.com/en/in/sainthal/3110618/current-weather/3110618?lang=en-us",
+            "Link": "http://www.accuweather.com/en/in/sainthal/3110618/current-weather/3110618?lang=en-us"
+        }
+    }
+}
