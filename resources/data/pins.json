@@ -66,8 +66,8 @@
 	},
 	{
 		"pin": 14,
-		"GPIO": "GROUND",
-		"description" : ""
+		"GPIO": false,
+		"description" : "GROUND"
 	},
 	{
 		"pin": 15,
@@ -196,8 +196,8 @@
 	},
 	{
 		"pin": 39,
-		"GPIO": "GROUND",
-		"description" : ""
+		"GPIO": false,
+		"description" : "GROUND"
 	},
 	{
 		"pin": 40,
